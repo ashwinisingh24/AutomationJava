@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="MainRegressionSuite_In_Parllel" verbose="1"
+	thread-count="8" parallel="methods">
+	<parameter name="remoteURL" value="" /><!-- http://192.168.0.181:4444/wd/hub -->
+	<listeners>
+		<listener class-name="common.testNgListener.CustomListener" />
+	</listeners>
+	<test name="MainRegressionTests">
+		<parameter name="environment" value="" />
+		<parameter name="browser" value="CHROME" />
+		<parameter name="platform" value="" />
+		<classes>
+				<class name="tests.MainRegressionSuite">
+					<methods>
+						<include name="DemoTest"/>
+					</methods>
+				</class>
+		</classes>
+	</test>
+</suite>
